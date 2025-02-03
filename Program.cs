@@ -6,18 +6,26 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            Parella<string, int> parella1 = new Parella<string, int>("Hola", 2);
-            parella1.ShowValues();
-            Parella<double, bool> parella2 = new Parella<double, bool>(2.3, false);
-            parella2.ShowValues();
-            ArrayList arrayList = new ArrayList();
-            arrayList.Add(Console.ReadLine());
-            arrayList.Add(Console.ReadLine());
-            arrayList.Add(Console.ReadLine());
-            foreach (var i in arrayList)
+            const string MsgInstructions = "Write the name and the age of 4 persons and i will print them";
+            const string MsgFormatError = "The format of the input is incoorect";
+            Console.WriteLine(MsgInstructions);
+            Dictionary<string, int> diccionari = new Dictionary<string, int>();
+            try
             {
-                Console.WriteLine(i);
+                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
+                foreach(var item in diccionari)
+                {
+                    Console.WriteLine($"{item.Key}, {item.Value}");
+                }
             }
+            catch(FormatException)
+            {
+                Console.WriteLine(MsgFormatError);
+            }
+            
         }
     }
 }
