@@ -6,26 +6,32 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            const string MsgInstructions = "Write the name and the age of 4 persons and i will print them";
-            const string MsgFormatError = "The format of the input is incoorect";
+            const string MsgInstructions = "Write 4 names and i will sort them";
+            const string MsgFormatError = "The format of the name is incorrect";
+            string[] names = new string[4];
             Console.WriteLine(MsgInstructions);
-            Dictionary<string, int> diccionari = new Dictionary<string, int>();
             try
             {
-                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
-                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
-                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
-                diccionari.Add(Console.ReadLine(), int.Parse(Console.ReadLine()));
-                foreach(var item in diccionari)
+                for(int i = 0; i < names.Length; i++)
                 {
-                    Console.WriteLine($"{item.Key}, {item.Value}");
+                    names[i] = Console.ReadLine();
+                }
+                Console.WriteLine("--------------");
+                for(int i = 0;i < names.Length; i++)
+                {
+                    Console.WriteLine(names[i]);
+                }
+                Console.WriteLine("--------------");
+                Array.Sort(names);
+                for (int i = 0; i < names.Length; i++)
+                {
+                    Console.WriteLine(names[i]);
                 }
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 Console.WriteLine(MsgFormatError);
             }
-            
         }
     }
 }
