@@ -1,26 +1,20 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 namespace Activitats_T4
 {
     public class Program
     {
         public static void Main()
         {
+            const string MsgInstructions = "Enter a date and i will tell you how much time is left (Format: YYYY-MM-DD)";
             const string MsgFormatError = "The format of the name is incorrect";
-            List<int> numberList = new List<int>();
+            Console.WriteLine(MsgInstructions);
             try
             {
-                for (int i = 0; i < 10; i++)
-                {
-                    numberList.Add(int.Parse(Console.ReadLine()));
-                }
-                foreach (int i in numberList)
-                {
-                    if (i % 2 == 0)
-                    {
-                        Console.WriteLine(i);
-                    }
-                }
+                DateTime dateTime = new DateTime(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+                TimeSpan diferencia = dateTime.Subtract(DateTime.Now);
+                Console.WriteLine(diferencia);
             }
             catch (FormatException)
             {
