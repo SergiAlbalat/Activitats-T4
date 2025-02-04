@@ -7,19 +7,17 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            const string MsgInstructions = "Enter a date and i will tell you how much time is left (Format: YYYY-MM-DD)";
-            const string MsgFormatError = "The format of the name is incorrect";
-            Console.WriteLine(MsgInstructions);
-            try
+            ArrayList arrayList = new ArrayList() { "Maria", "Joan", "Anna", 42, true };
+            foreach(var i in  arrayList)
             {
-                DateTime dateTime = new DateTime(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
-                TimeSpan diferencia = dateTime.Subtract(DateTime.Now);
-                Console.WriteLine(diferencia);
+                Console.WriteLine(i);
             }
-            catch (FormatException)
-            {
-                Console.WriteLine(MsgFormatError);
-            }
+            arrayList.RemoveAt(4);
+            arrayList.RemoveAt(3);
+            arrayList.Insert(2, "Pere");
+            arrayList.Sort();
+            Console.WriteLine(arrayList.BinarySearch("Anna") == 0 ? "Anna es troba en l'ArrayList" : "Anna no es troba en l'ArrayList");
+            arrayList.ToArray();
         }
     }
 }
