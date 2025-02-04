@@ -7,17 +7,14 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            ArrayList arrayList = new ArrayList() { "Maria", "Joan", "Anna", 42, true };
-            foreach(var i in  arrayList)
-            {
-                Console.WriteLine(i);
-            }
-            arrayList.RemoveAt(4);
-            arrayList.RemoveAt(3);
-            arrayList.Insert(2, "Pere");
-            arrayList.Sort();
-            Console.WriteLine(arrayList.BinarySearch("Anna") == 0 ? "Anna es troba en l'ArrayList" : "Anna no es troba en l'ArrayList");
-            arrayList.ToArray();
+            List<int> numList = new List<int>() { 5, 10, 15, 20, 25 };
+            numList.Add(30);
+            numList.Insert(0, 7);
+            numList.Sort();
+            numList.RemoveAt(numList.BinarySearch(15));
+            numList = numList.OrderByDescending(x => x).ToList();
+            numList = numList.Where(n => n%2==0).ToList();
+            numList.ForEach(x => Console.WriteLine(x));
         }
     }
 }
