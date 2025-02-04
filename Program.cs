@@ -6,26 +6,20 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            const string MsgInstructions = "Write 4 names and i will sort them";
             const string MsgFormatError = "The format of the name is incorrect";
-            string[] names = new string[4];
-            Console.WriteLine(MsgInstructions);
+            List<int> numberList = new List<int>();
             try
             {
-                for(int i = 0; i < names.Length; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    names[i] = Console.ReadLine();
+                    numberList.Add(int.Parse(Console.ReadLine()));
                 }
-                Console.WriteLine("--------------");
-                for(int i = 0;i < names.Length; i++)
+                foreach (int i in numberList)
                 {
-                    Console.WriteLine(names[i]);
-                }
-                Console.WriteLine("--------------");
-                Array.Sort(names);
-                for (int i = 0; i < names.Length; i++)
-                {
-                    Console.WriteLine(names[i]);
+                    if (i % 2 == 0)
+                    {
+                        Console.WriteLine(i);
+                    }
                 }
             }
             catch (FormatException)
