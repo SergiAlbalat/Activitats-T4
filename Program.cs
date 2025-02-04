@@ -7,14 +7,39 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            List<int> numList = new List<int>() { 5, 10, 15, 20, 25 };
-            numList.Add(30);
-            numList.Insert(0, 7);
-            numList.Sort();
-            numList.RemoveAt(numList.BinarySearch(15));
-            numList = numList.OrderByDescending(x => x).ToList();
-            numList = numList.Where(n => n%2==0).ToList();
-            numList.ForEach(x => Console.WriteLine(x));
+            const string MsgSearchName = "What name do you want to search in the dictionary?";
+            const string MsgNameFound = "It's in the dictionary!";
+            const string MsgNameNotFound = "It's not in the dictionary!";
+            const string MsgNageAge = "The age of {0} is: {1}";
+            const string MsgFormatError = "The format of the name is incorrect";
+            string searchKey;
+            Dictionary<string, int> studentAges = new Dictionary<string, int>();
+            studentAges.Add("Marc", 21);
+            studentAges.Add("Laura", 19);
+            studentAges.Add("Pau", 22);
+            foreach(var i in studentAges)
+            {
+                Console.WriteLine("{0}: {1}", i.Key, i.Value);
+            }
+            Console.WriteLine(MsgSearchName);
+            try
+            {
+                searchKey = Console.ReadLine();
+                Console.WriteLine(studentAges.ContainsKey(searchKey));
+                if (studentAges.ContainsKey(searchKey)){
+                    Console.WriteLine(MsgNageAge, searchKey, studentAges[searchKey]);
+                }
+                studentAges.Remove("Laura");
+                foreach (var i in studentAges)
+                {
+                    Console.WriteLine("{0}: {1}", i.Key, i.Value);
+                }
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine(MsgFormatError);
+            }
+            
         }
     }
 }
