@@ -7,7 +7,7 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            DateTime fechaNacimiento = new DateTime(2006,02,18);
+            DateTime fechaNacimiento = new DateTime(2006,02,19);
             Employee emp = new Employee();
             Console.WriteLine(emp.CalculateAge(fechaNacimiento));
         }
