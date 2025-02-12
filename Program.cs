@@ -8,8 +8,8 @@ namespace Activitats_T4
         public static void Main()
         {
             List<int> numList = new List<int> { 1, 2, 3, 10 };
-            int sum = numList.Sum();
-            Console.WriteLine(sum);
+            var evens = numList.Where(n => n % 2 == 0).ToList();
+            evens.ForEach(n => Console.WriteLine(n));
         }
     }
 }
