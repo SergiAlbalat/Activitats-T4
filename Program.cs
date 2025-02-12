@@ -7,9 +7,9 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            List<int> numList = new List<int> { 1, 2, 3, 10 };
-            var evens = numList.Where(n => n % 2 == 0).ToList();
-            evens.ForEach(n => Console.WriteLine(n));
+            string[] words = new string[] { "hola", "adeu", "dasda", "JAJAJAJA" };
+            List<string> wordList = words.ToList();
+            wordList.ForEach(word => Console.WriteLine(word));
         }
     }
 }
