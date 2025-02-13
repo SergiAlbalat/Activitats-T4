@@ -6,20 +6,12 @@ namespace Activitats_T4
 {
     public class Program
     {
-        public delegate void Notificacio(string msg);
-        public static void MostrarMissatgeConsola(string msg)
-        {
-            Console.WriteLine(msg);
-        }
-        public static void MostrarMissatgeAmbEstrelles(string msg)
-        {
-            Console.WriteLine($"*{msg}*");
-        }
         public static void Main()
         {
-            Notificacio delegat = MostrarMissatgeConsola;
-            delegat += MostrarMissatgeAmbEstrelles;
-            delegat("Hello World");
+            Func<int, int, int> multiplicacio = (x, y) => x * y;
+            Console.WriteLine(multiplicacio(4, 3));
+            Action<int, int> mostrarSuma = (x, y) => Console.WriteLine(x + y);
+            mostrarSuma(1, 7);
         }
     }
 }
