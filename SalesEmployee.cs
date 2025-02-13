@@ -8,6 +8,7 @@ namespace Activitats_T4
 {
     public class SalesEmployee : Employee
     {
+        private const string EmployeeType = "SALES EMPLOYEE";
         public float Commission { get; set; }
         private const float DefaultCommission = 1.0f;
         public SalesEmployee(string code, string name, string surname, DateTime birthDate, float monthSalary, int payments, float commission) : base(code, name, surname, birthDate, monthSalary, payments)
@@ -15,6 +16,12 @@ namespace Activitats_T4
             Commission = commission;
         }
         public SalesEmployee() : this(DefaultCode, DefaultName, DefaultSurname, DateTime.Now, DefaultSalary, DefaultPayments, DefaultCommission) { }
-        public override string ToString() => $"-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E / S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n>Code: {Code}\r\n>Firstname: {Name}\r\n>Last name: {Surname}\r\n>Full name: {GetFullName(false)}  \r\n>Reverse name: {GetFullName(true)}\r\n>Age: {CalculateAge()}\r\n>Seniority: {CalculateTimeWorking()}\r\n>Annual salary: {GetAnualSalary()}\r\n>Commission: {Commission}";
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.Append($"\n>Commission: {Commission}");
+            return sb.ToString();
+        } 
     }
 }
