@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Text;
 namespace Activitats_T4
 {
     public class Employee
     {
         private static int _employeeCounter = 0;
+        private const string EmployeeType = "EMPLOYEE";
         public static int GetCounter() => _employeeCounter;
         protected const string DefaultCode = "No Code";
         protected const string DefaultName = "Jhon";
@@ -45,6 +47,21 @@ namespace Activitats_T4
             return years;
         }
         public float GetAnualSalary() => MonthSalary*Payments;
-        public override string ToString() => $"-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E / S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n>Code: {Code}\r\n>Firstname: {Name}\r\n>Last name: {Surname}\r\n>Full name: {GetFullName(false)}\r\n>Reverse name: {GetFullName(true)}\r\n>Age: {CalculateAge()}\r\n>Seniority: {CalculateTimeWorking()}\r\n>Annual salary {GetAnualSalary()}";
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"-----------------------------------------------------------------------------------------------------\r\n");
+            sb.Append($"                           {EmployeeType}\r\n");
+            sb.Append($"-----------------------------------------------------------------------------------------------------\r\n");
+            sb.Append($">Code: {Code}\r\n");
+            sb.Append($">Firstname: {Name}\r\n");
+            sb.Append($">Last name: {Surname}\r\n");
+            sb.Append($">Full name: {GetFullName(false)}\r\n");
+            sb.Append($">Reverse name: {GetFullName(true)}\r\n");
+            sb.Append($">Age: {CalculateAge()}\r\n");
+            sb.Append($">Seniority: {CalculateTimeWorking()}\r\n");
+            sb.Append($">Annual salary {GetAnualSalary()}");
+            return sb.ToString();
+        }    
     }
 }
