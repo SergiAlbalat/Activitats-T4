@@ -9,12 +9,11 @@ namespace Activitats_T4
         public delegate int MyDelegate(int a, int b);
         public static int Multiplicar(int a, int b) => a * b;
         public static int Dividir(int a, int b) => a / b;
+        public static int ExecutarOperacio(int a, int b, MyDelegate op) => op(a, b);
         public static void Main()
         {
-            MyDelegate delegat = Multiplicar;
-            Console.WriteLine(delegat(2, 4));
-            delegat = Dividir;
-            Console.WriteLine(delegat(10, 5));
+            Console.WriteLine(ExecutarOperacio(3, 3, Multiplicar));
+            Console.WriteLine(ExecutarOperacio(20, 4, Dividir));
         }
     }
 }
