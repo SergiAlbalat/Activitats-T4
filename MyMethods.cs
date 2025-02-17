@@ -18,5 +18,18 @@ namespace Activitats_T4
         {
             return Regex.IsMatch(email, @"(?i)^[A-Z1-9].*@[A-Z].*\.com$");
         }
+
+        public static bool IsValidPhone(string number)
+        {
+            if(Regex.IsMatch(number, @"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"))
+            {
+                return true;
+            }else if(Regex.IsMatch(number, @"^\+34 [0-9][0-9][0-9] [0-9][0-9][0-9] [0-9][0-9][0-9]$")){
+                return true;
+            }else if(Regex.IsMatch(number, @"^[0-9][0-9][0-9] [0-9][0-9][0-9] [0-9][0-9][0-9]$")){
+                return true;
+            }
+            return false;
+        }
     }
 }
