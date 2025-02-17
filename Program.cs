@@ -8,9 +8,8 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            Func<int, int, int> restar = (a, b) => a - b;
-            Console.WriteLine(restar(5, 1));
-            Console.WriteLine(restar(8, 3));
+            Console.WriteLine(MyMethods.IsValidEmail("sergialbalat@gmail.com"));
+            Console.WriteLine(MyMethods.IsValidEmail("*@12"));
         }
     }
 }
