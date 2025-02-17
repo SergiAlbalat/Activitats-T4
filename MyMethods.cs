@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 namespace Activitats_T4
 {
     public static class MyMethods
@@ -13,5 +14,9 @@ namespace Activitats_T4
             return result;
         }
         
+        public static bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"(?i)^[A-Z1-9].*@[A-Z].*\.com$");
+        }
     }
 }
