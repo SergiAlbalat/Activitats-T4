@@ -6,16 +6,11 @@ namespace Activitats_T4
 { 
     public class Program
     {
-        public delegate void Notificacio(string msg);
-        public static void PrintMessage(Notificacio msg)
-        {
-            msg("MissatgeAnonim");
-        }
         public static void Main()
         {
-            PrintMessage(delegate (string msg) {
-                Console.WriteLine(msg);
-            });
+            Func<int, int, int> restar = (a, b) => a - b;
+            Console.WriteLine(restar(5, 1));
+            Console.WriteLine(restar(8, 3));
         }
     }
 }
