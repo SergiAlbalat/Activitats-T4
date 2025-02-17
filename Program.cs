@@ -6,23 +6,16 @@ namespace Activitats_T4
 { 
     public class Program
     {
-        public delegate int MyDelegate(int a, int b);
-        public static int MetodeAnonim(MyDelegate delegat)
+        public delegate void Notificacio(string msg);
+        public static void PrintMessage(Notificacio msg)
         {
-            return delegat(2, 4);
+            msg("MissatgeAnonim");
         }
         public static void Main()
         {
-            int num = MetodeAnonim(delegate (int a, int b)
-            {
-                int num = 1;
-                for (int i = 0; i < b; i++)
-                {
-                    num *= a;
-                }
-                return num;
+            PrintMessage(delegate (string msg) {
+                Console.WriteLine(msg);
             });
-            Console.WriteLine(num);
         }
     }
 }
