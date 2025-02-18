@@ -8,10 +8,9 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            string msg = "Ha corregut 10km";
-            List<int> numList = new List<int>();
-            numList = MyMethods.ExtractNumbers(msg);
-            numList.ForEach(num => Console.WriteLine(num));
+            Console.WriteLine(MyMethods.ValidatePassword("Hola1234!"));
+            Console.WriteLine(MyMethods.ValidatePassword("hola1234"));
+
         }
     }
 }
