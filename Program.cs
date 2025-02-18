@@ -8,8 +8,10 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            Console.WriteLine(MyMethods.IsValidPhone("+34 600 123 456"));
-            Console.WriteLine(MyMethods.IsValidPhone("60012345"));
+            string msg = "Ha corregut 10km";
+            List<int> numList = new List<int>();
+            numList = MyMethods.ExtractNumbers(msg);
+            numList.ForEach(num => Console.WriteLine(num));
         }
     }
 }

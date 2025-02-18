@@ -31,5 +31,13 @@ namespace Activitats_T4
             }
             return false;
         }
+
+        public static List<int> ExtractNumbers(string input)
+        {
+            List<int> numList = new List<int>();
+            
+            numList.Add(int.Parse(Regex.Match(input, @"\d+").Value));
+            return numList;
+        }
     }
 }
