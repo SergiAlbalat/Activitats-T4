@@ -39,5 +39,10 @@ namespace Activitats_T4
             numList.Add(int.Parse(Regex.Match(input, @"\d+").Value));
             return numList;
         }
+
+        public static bool ValidatePassword(string password)
+        {
+            return Regex.IsMatch(password, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,}$");
+        }
     }
 }
