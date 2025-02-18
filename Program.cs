@@ -8,8 +8,8 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            Console.WriteLine(MyMethods.IsValidEmail("sergialbalat@gmail.com"));
-            Console.WriteLine(MyMethods.IsValidEmail("*@12"));
+            Console.WriteLine(MyMethods.IsValidPhone("+34 600 123 456"));
+            Console.WriteLine(MyMethods.IsValidPhone("60012345"));
         }
     }
 }
