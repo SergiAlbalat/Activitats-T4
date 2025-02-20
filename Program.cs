@@ -8,9 +8,8 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            Console.WriteLine(MyMethods.ValidatePassword("Hola1234!"));
-            Console.WriteLine(MyMethods.ValidatePassword("hola1234"));
-
+            Console.WriteLine(MyMethods.ValidatePostalCode("08001"));
+            Console.WriteLine(MyMethods.ValidatePostalCode("60000"));
         }
     }
 }

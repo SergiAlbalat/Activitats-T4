@@ -44,5 +44,24 @@ namespace Activitats_T4
         {
             return Regex.IsMatch(password, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,}$");
         }
+
+        public static bool ValidatePostalCode(string code)
+        {
+            if(Regex.IsMatch(code, "^\\d{5}$"))
+            {
+                try
+                {
+                    int numbers = int.Parse(code);
+                    return numbers >= 01000 && numbers <= 52999;
+                }catch (FormatException)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
