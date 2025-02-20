@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -9,36 +10,22 @@ namespace Activitats_T4
     {
         public static void Main()
         {
-            const string MsgEvens = "Even Numbers: ";
-            const string MsgPositive = "\nPositive Numbers: ";
-            const string MsgBigNum = "\nBig numbers and their Square: ";
-            const string MsgNumFrequency = "Frquency of each number:";
-            const string MsgCharFrequency = "Frequency of each character of a string";
-            List<int> numList = new List<int>() { 7,22,-3,-4,-5,6,7,78,49,-7 };
-            string charChain = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel dolor quis nisi condimentum consequat. Suspendisse potenti.";
-            List<int> modifiedList = numList.Where(x => x%2==0).ToList();
-            Console.Write(MsgEvens);
-            modifiedList.ForEach(num => Console.Write($"{num}, "));
-            modifiedList = numList.Where(x => x>0).ToList();
-            Console.Write(MsgPositive);
-            modifiedList.ForEach(num => Console.Write($"{num}, "));
-            modifiedList = numList.Where(x => x>20).ToList();
-            Console.WriteLine(MsgBigNum);
-            modifiedList.ForEach(num => Console.WriteLine($"{num}, {num*num}"));
-            Console.WriteLine(MsgNumFrequency);
-            foreach(int num in numList.Distinct())
+            string path = "notes.txt";
+            using(StreamWriter sw = new StreamWriter(path))
             {
-                Console.WriteLine($"{num}: {numList.Where(x => x == num).Count()}");
+                sw.WriteLine("4.9,Alejandro,Martin,Esteve");
+                sw.WriteLine("10,Sergi,Albalat,Duran");
+                sw.WriteLine("8.5,Marcos,Barrero,Herrero");
+                sw.WriteLine("7,Ruben,Borrego,Gomez");
+                sw.WriteLine("5,Pol,Guerrero,Muñoz");
             }
-            Console.WriteLine(MsgCharFrequency);
-            foreach(char ch in charChain.Distinct())
+            using(StreamReader sr = new StreamReader(path))
             {
-                Console.WriteLine($"{ch}: {charChain.Where(x => x == ch).Count()}");
-            }
-            var diesSetmana = CultureInfo.CurrentCulture.DateTimeFormat.DayNames.Select(x => x);
-            foreach(var dia in diesSetmana)
-            {
-                Console.WriteLine(dia);
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
             }
         }
     }
