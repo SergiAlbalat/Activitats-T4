@@ -13,7 +13,7 @@ namespace Activitats_T4
         }
         public static void Main()
         {
-            int num = MetodeAnonim(delegate (int a, int b)
+            MyDelegate metodeAnonim = delegate (int a, int b)
             {
                 int num = 1;
                 for (int i = 0; i < b; i++)
@@ -21,7 +21,7 @@ namespace Activitats_T4
                     num *= a;
                 }
                 return num;
-            });
+            };
             Console.WriteLine(num);
         }
     }
